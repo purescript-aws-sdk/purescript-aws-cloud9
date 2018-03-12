@@ -20,57 +20,75 @@ import Data.StrMap as StrMap
 import AWS.Request as Request
 import AWS.Request.Types as Types
 
-serviceName = "Cloud9" :: String
-
 
 -- | <p>Creates an AWS Cloud9 development environment, launches an Amazon Elastic Compute Cloud (Amazon EC2) instance, and then connects from the instance to the environment.</p>
 createEnvironmentEC2 :: forall eff. CreateEnvironmentEC2Request -> Aff (exception :: EXCEPTION | eff) CreateEnvironmentEC2Result
-createEnvironmentEC2 = Request.request serviceName "createEnvironmentEC2" 
+createEnvironmentEC2 = Request.request service method  where
+    service = Request.ServiceName "Cloud9"
+    method = Request.MethodName "createEnvironmentEC2"
 
 
 -- | <p>Adds an environment member to an AWS Cloud9 development environment.</p>
 createEnvironmentMembership :: forall eff. CreateEnvironmentMembershipRequest -> Aff (exception :: EXCEPTION | eff) CreateEnvironmentMembershipResult
-createEnvironmentMembership = Request.request serviceName "createEnvironmentMembership" 
+createEnvironmentMembership = Request.request service method  where
+    service = Request.ServiceName "Cloud9"
+    method = Request.MethodName "createEnvironmentMembership"
 
 
 -- | <p>Deletes an AWS Cloud9 development environment. If an Amazon EC2 instance is connected to the environment, also terminates the instance.</p>
 deleteEnvironment :: forall eff. DeleteEnvironmentRequest -> Aff (exception :: EXCEPTION | eff) DeleteEnvironmentResult
-deleteEnvironment = Request.request serviceName "deleteEnvironment" 
+deleteEnvironment = Request.request service method  where
+    service = Request.ServiceName "Cloud9"
+    method = Request.MethodName "deleteEnvironment"
 
 
 -- | <p>Deletes an environment member from an AWS Cloud9 development environment.</p>
 deleteEnvironmentMembership :: forall eff. DeleteEnvironmentMembershipRequest -> Aff (exception :: EXCEPTION | eff) DeleteEnvironmentMembershipResult
-deleteEnvironmentMembership = Request.request serviceName "deleteEnvironmentMembership" 
+deleteEnvironmentMembership = Request.request service method  where
+    service = Request.ServiceName "Cloud9"
+    method = Request.MethodName "deleteEnvironmentMembership"
 
 
 -- | <p>Gets information about environment members for an AWS Cloud9 development environment.</p>
 describeEnvironmentMemberships :: forall eff. DescribeEnvironmentMembershipsRequest -> Aff (exception :: EXCEPTION | eff) DescribeEnvironmentMembershipsResult
-describeEnvironmentMemberships = Request.request serviceName "describeEnvironmentMemberships" 
+describeEnvironmentMemberships = Request.request service method  where
+    service = Request.ServiceName "Cloud9"
+    method = Request.MethodName "describeEnvironmentMemberships"
 
 
 -- | <p>Gets status information for an AWS Cloud9 development environment.</p>
 describeEnvironmentStatus :: forall eff. DescribeEnvironmentStatusRequest -> Aff (exception :: EXCEPTION | eff) DescribeEnvironmentStatusResult
-describeEnvironmentStatus = Request.request serviceName "describeEnvironmentStatus" 
+describeEnvironmentStatus = Request.request service method  where
+    service = Request.ServiceName "Cloud9"
+    method = Request.MethodName "describeEnvironmentStatus"
 
 
 -- | <p>Gets information about AWS Cloud9 development environments.</p>
 describeEnvironments :: forall eff. DescribeEnvironmentsRequest -> Aff (exception :: EXCEPTION | eff) DescribeEnvironmentsResult
-describeEnvironments = Request.request serviceName "describeEnvironments" 
+describeEnvironments = Request.request service method  where
+    service = Request.ServiceName "Cloud9"
+    method = Request.MethodName "describeEnvironments"
 
 
 -- | <p>Gets a list of AWS Cloud9 development environment identifiers.</p>
 listEnvironments :: forall eff. ListEnvironmentsRequest -> Aff (exception :: EXCEPTION | eff) ListEnvironmentsResult
-listEnvironments = Request.request serviceName "listEnvironments" 
+listEnvironments = Request.request service method  where
+    service = Request.ServiceName "Cloud9"
+    method = Request.MethodName "listEnvironments"
 
 
 -- | <p>Changes the settings of an existing AWS Cloud9 development environment.</p>
 updateEnvironment :: forall eff. UpdateEnvironmentRequest -> Aff (exception :: EXCEPTION | eff) UpdateEnvironmentResult
-updateEnvironment = Request.request serviceName "updateEnvironment" 
+updateEnvironment = Request.request service method  where
+    service = Request.ServiceName "Cloud9"
+    method = Request.MethodName "updateEnvironment"
 
 
 -- | <p>Changes the settings of an existing environment member for an AWS Cloud9 development environment.</p>
 updateEnvironmentMembership :: forall eff. UpdateEnvironmentMembershipRequest -> Aff (exception :: EXCEPTION | eff) UpdateEnvironmentMembershipResult
-updateEnvironmentMembership = Request.request serviceName "updateEnvironmentMembership" 
+updateEnvironmentMembership = Request.request service method  where
+    service = Request.ServiceName "Cloud9"
+    method = Request.MethodName "updateEnvironmentMembership"
 
 
 newtype AutomaticStopTimeMinutes = AutomaticStopTimeMinutes Int
