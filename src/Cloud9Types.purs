@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -67,12 +66,12 @@ instance encodeConflictException :: Encode ConflictException where encode = gene
 
 newtype CreateEnvironmentEC2Request = CreateEnvironmentEC2Request 
   { "name" :: (EnvironmentName)
-  , "description" :: NullOrUndefined (EnvironmentDescription)
-  , "clientRequestToken" :: NullOrUndefined (ClientRequestToken)
+  , "description" :: Maybe (EnvironmentDescription)
+  , "clientRequestToken" :: Maybe (ClientRequestToken)
   , "instanceType" :: (InstanceType)
-  , "subnetId" :: NullOrUndefined (SubnetId)
-  , "automaticStopTimeMinutes" :: NullOrUndefined (AutomaticStopTimeMinutes)
-  , "ownerArn" :: NullOrUndefined (UserArn)
+  , "subnetId" :: Maybe (SubnetId)
+  , "automaticStopTimeMinutes" :: Maybe (AutomaticStopTimeMinutes)
+  , "ownerArn" :: Maybe (UserArn)
   }
 derive instance newtypeCreateEnvironmentEC2Request :: Newtype CreateEnvironmentEC2Request _
 derive instance repGenericCreateEnvironmentEC2Request :: Generic CreateEnvironmentEC2Request _
@@ -82,17 +81,17 @@ instance encodeCreateEnvironmentEC2Request :: Encode CreateEnvironmentEC2Request
 
 -- | Constructs CreateEnvironmentEC2Request from required parameters
 newCreateEnvironmentEC2Request :: InstanceType -> EnvironmentName -> CreateEnvironmentEC2Request
-newCreateEnvironmentEC2Request _instanceType _name = CreateEnvironmentEC2Request { "instanceType": _instanceType, "name": _name, "automaticStopTimeMinutes": (NullOrUndefined Nothing), "clientRequestToken": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "ownerArn": (NullOrUndefined Nothing), "subnetId": (NullOrUndefined Nothing) }
+newCreateEnvironmentEC2Request _instanceType _name = CreateEnvironmentEC2Request { "instanceType": _instanceType, "name": _name, "automaticStopTimeMinutes": Nothing, "clientRequestToken": Nothing, "description": Nothing, "ownerArn": Nothing, "subnetId": Nothing }
 
 -- | Constructs CreateEnvironmentEC2Request's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateEnvironmentEC2Request' :: InstanceType -> EnvironmentName -> ( { "name" :: (EnvironmentName) , "description" :: NullOrUndefined (EnvironmentDescription) , "clientRequestToken" :: NullOrUndefined (ClientRequestToken) , "instanceType" :: (InstanceType) , "subnetId" :: NullOrUndefined (SubnetId) , "automaticStopTimeMinutes" :: NullOrUndefined (AutomaticStopTimeMinutes) , "ownerArn" :: NullOrUndefined (UserArn) } -> {"name" :: (EnvironmentName) , "description" :: NullOrUndefined (EnvironmentDescription) , "clientRequestToken" :: NullOrUndefined (ClientRequestToken) , "instanceType" :: (InstanceType) , "subnetId" :: NullOrUndefined (SubnetId) , "automaticStopTimeMinutes" :: NullOrUndefined (AutomaticStopTimeMinutes) , "ownerArn" :: NullOrUndefined (UserArn) } ) -> CreateEnvironmentEC2Request
-newCreateEnvironmentEC2Request' _instanceType _name customize = (CreateEnvironmentEC2Request <<< customize) { "instanceType": _instanceType, "name": _name, "automaticStopTimeMinutes": (NullOrUndefined Nothing), "clientRequestToken": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "ownerArn": (NullOrUndefined Nothing), "subnetId": (NullOrUndefined Nothing) }
+newCreateEnvironmentEC2Request' :: InstanceType -> EnvironmentName -> ( { "name" :: (EnvironmentName) , "description" :: Maybe (EnvironmentDescription) , "clientRequestToken" :: Maybe (ClientRequestToken) , "instanceType" :: (InstanceType) , "subnetId" :: Maybe (SubnetId) , "automaticStopTimeMinutes" :: Maybe (AutomaticStopTimeMinutes) , "ownerArn" :: Maybe (UserArn) } -> {"name" :: (EnvironmentName) , "description" :: Maybe (EnvironmentDescription) , "clientRequestToken" :: Maybe (ClientRequestToken) , "instanceType" :: (InstanceType) , "subnetId" :: Maybe (SubnetId) , "automaticStopTimeMinutes" :: Maybe (AutomaticStopTimeMinutes) , "ownerArn" :: Maybe (UserArn) } ) -> CreateEnvironmentEC2Request
+newCreateEnvironmentEC2Request' _instanceType _name customize = (CreateEnvironmentEC2Request <<< customize) { "instanceType": _instanceType, "name": _name, "automaticStopTimeMinutes": Nothing, "clientRequestToken": Nothing, "description": Nothing, "ownerArn": Nothing, "subnetId": Nothing }
 
 
 
 newtype CreateEnvironmentEC2Result = CreateEnvironmentEC2Result 
-  { "environmentId" :: NullOrUndefined (EnvironmentId)
+  { "environmentId" :: Maybe (EnvironmentId)
   }
 derive instance newtypeCreateEnvironmentEC2Result :: Newtype CreateEnvironmentEC2Result _
 derive instance repGenericCreateEnvironmentEC2Result :: Generic CreateEnvironmentEC2Result _
@@ -102,12 +101,12 @@ instance encodeCreateEnvironmentEC2Result :: Encode CreateEnvironmentEC2Result w
 
 -- | Constructs CreateEnvironmentEC2Result from required parameters
 newCreateEnvironmentEC2Result :: CreateEnvironmentEC2Result
-newCreateEnvironmentEC2Result  = CreateEnvironmentEC2Result { "environmentId": (NullOrUndefined Nothing) }
+newCreateEnvironmentEC2Result  = CreateEnvironmentEC2Result { "environmentId": Nothing }
 
 -- | Constructs CreateEnvironmentEC2Result's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateEnvironmentEC2Result' :: ( { "environmentId" :: NullOrUndefined (EnvironmentId) } -> {"environmentId" :: NullOrUndefined (EnvironmentId) } ) -> CreateEnvironmentEC2Result
-newCreateEnvironmentEC2Result'  customize = (CreateEnvironmentEC2Result <<< customize) { "environmentId": (NullOrUndefined Nothing) }
+newCreateEnvironmentEC2Result' :: ( { "environmentId" :: Maybe (EnvironmentId) } -> {"environmentId" :: Maybe (EnvironmentId) } ) -> CreateEnvironmentEC2Result
+newCreateEnvironmentEC2Result'  customize = (CreateEnvironmentEC2Result <<< customize) { "environmentId": Nothing }
 
 
 
@@ -134,7 +133,7 @@ newCreateEnvironmentMembershipRequest' _environmentId _permissions _userArn cust
 
 
 newtype CreateEnvironmentMembershipResult = CreateEnvironmentMembershipResult 
-  { "membership" :: NullOrUndefined (EnvironmentMember)
+  { "membership" :: Maybe (EnvironmentMember)
   }
 derive instance newtypeCreateEnvironmentMembershipResult :: Newtype CreateEnvironmentMembershipResult _
 derive instance repGenericCreateEnvironmentMembershipResult :: Generic CreateEnvironmentMembershipResult _
@@ -144,12 +143,12 @@ instance encodeCreateEnvironmentMembershipResult :: Encode CreateEnvironmentMemb
 
 -- | Constructs CreateEnvironmentMembershipResult from required parameters
 newCreateEnvironmentMembershipResult :: CreateEnvironmentMembershipResult
-newCreateEnvironmentMembershipResult  = CreateEnvironmentMembershipResult { "membership": (NullOrUndefined Nothing) }
+newCreateEnvironmentMembershipResult  = CreateEnvironmentMembershipResult { "membership": Nothing }
 
 -- | Constructs CreateEnvironmentMembershipResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateEnvironmentMembershipResult' :: ( { "membership" :: NullOrUndefined (EnvironmentMember) } -> {"membership" :: NullOrUndefined (EnvironmentMember) } ) -> CreateEnvironmentMembershipResult
-newCreateEnvironmentMembershipResult'  customize = (CreateEnvironmentMembershipResult <<< customize) { "membership": (NullOrUndefined Nothing) }
+newCreateEnvironmentMembershipResult' :: ( { "membership" :: Maybe (EnvironmentMember) } -> {"membership" :: Maybe (EnvironmentMember) } ) -> CreateEnvironmentMembershipResult
+newCreateEnvironmentMembershipResult'  customize = (CreateEnvironmentMembershipResult <<< customize) { "membership": Nothing }
 
 
 
@@ -213,11 +212,11 @@ instance encodeDeleteEnvironmentResult :: Encode DeleteEnvironmentResult where e
 
 
 newtype DescribeEnvironmentMembershipsRequest = DescribeEnvironmentMembershipsRequest 
-  { "userArn" :: NullOrUndefined (UserArn)
-  , "environmentId" :: NullOrUndefined (EnvironmentId)
-  , "permissions" :: NullOrUndefined (PermissionsList)
-  , "nextToken" :: NullOrUndefined (String)
-  , "maxResults" :: NullOrUndefined (MaxResults)
+  { "userArn" :: Maybe (UserArn)
+  , "environmentId" :: Maybe (EnvironmentId)
+  , "permissions" :: Maybe (PermissionsList)
+  , "nextToken" :: Maybe (String)
+  , "maxResults" :: Maybe (MaxResults)
   }
 derive instance newtypeDescribeEnvironmentMembershipsRequest :: Newtype DescribeEnvironmentMembershipsRequest _
 derive instance repGenericDescribeEnvironmentMembershipsRequest :: Generic DescribeEnvironmentMembershipsRequest _
@@ -227,18 +226,18 @@ instance encodeDescribeEnvironmentMembershipsRequest :: Encode DescribeEnvironme
 
 -- | Constructs DescribeEnvironmentMembershipsRequest from required parameters
 newDescribeEnvironmentMembershipsRequest :: DescribeEnvironmentMembershipsRequest
-newDescribeEnvironmentMembershipsRequest  = DescribeEnvironmentMembershipsRequest { "environmentId": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "permissions": (NullOrUndefined Nothing), "userArn": (NullOrUndefined Nothing) }
+newDescribeEnvironmentMembershipsRequest  = DescribeEnvironmentMembershipsRequest { "environmentId": Nothing, "maxResults": Nothing, "nextToken": Nothing, "permissions": Nothing, "userArn": Nothing }
 
 -- | Constructs DescribeEnvironmentMembershipsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeEnvironmentMembershipsRequest' :: ( { "userArn" :: NullOrUndefined (UserArn) , "environmentId" :: NullOrUndefined (EnvironmentId) , "permissions" :: NullOrUndefined (PermissionsList) , "nextToken" :: NullOrUndefined (String) , "maxResults" :: NullOrUndefined (MaxResults) } -> {"userArn" :: NullOrUndefined (UserArn) , "environmentId" :: NullOrUndefined (EnvironmentId) , "permissions" :: NullOrUndefined (PermissionsList) , "nextToken" :: NullOrUndefined (String) , "maxResults" :: NullOrUndefined (MaxResults) } ) -> DescribeEnvironmentMembershipsRequest
-newDescribeEnvironmentMembershipsRequest'  customize = (DescribeEnvironmentMembershipsRequest <<< customize) { "environmentId": (NullOrUndefined Nothing), "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing), "permissions": (NullOrUndefined Nothing), "userArn": (NullOrUndefined Nothing) }
+newDescribeEnvironmentMembershipsRequest' :: ( { "userArn" :: Maybe (UserArn) , "environmentId" :: Maybe (EnvironmentId) , "permissions" :: Maybe (PermissionsList) , "nextToken" :: Maybe (String) , "maxResults" :: Maybe (MaxResults) } -> {"userArn" :: Maybe (UserArn) , "environmentId" :: Maybe (EnvironmentId) , "permissions" :: Maybe (PermissionsList) , "nextToken" :: Maybe (String) , "maxResults" :: Maybe (MaxResults) } ) -> DescribeEnvironmentMembershipsRequest
+newDescribeEnvironmentMembershipsRequest'  customize = (DescribeEnvironmentMembershipsRequest <<< customize) { "environmentId": Nothing, "maxResults": Nothing, "nextToken": Nothing, "permissions": Nothing, "userArn": Nothing }
 
 
 
 newtype DescribeEnvironmentMembershipsResult = DescribeEnvironmentMembershipsResult 
-  { "memberships" :: NullOrUndefined (EnvironmentMembersList)
-  , "nextToken" :: NullOrUndefined (String)
+  { "memberships" :: Maybe (EnvironmentMembersList)
+  , "nextToken" :: Maybe (String)
   }
 derive instance newtypeDescribeEnvironmentMembershipsResult :: Newtype DescribeEnvironmentMembershipsResult _
 derive instance repGenericDescribeEnvironmentMembershipsResult :: Generic DescribeEnvironmentMembershipsResult _
@@ -248,12 +247,12 @@ instance encodeDescribeEnvironmentMembershipsResult :: Encode DescribeEnvironmen
 
 -- | Constructs DescribeEnvironmentMembershipsResult from required parameters
 newDescribeEnvironmentMembershipsResult :: DescribeEnvironmentMembershipsResult
-newDescribeEnvironmentMembershipsResult  = DescribeEnvironmentMembershipsResult { "memberships": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeEnvironmentMembershipsResult  = DescribeEnvironmentMembershipsResult { "memberships": Nothing, "nextToken": Nothing }
 
 -- | Constructs DescribeEnvironmentMembershipsResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeEnvironmentMembershipsResult' :: ( { "memberships" :: NullOrUndefined (EnvironmentMembersList) , "nextToken" :: NullOrUndefined (String) } -> {"memberships" :: NullOrUndefined (EnvironmentMembersList) , "nextToken" :: NullOrUndefined (String) } ) -> DescribeEnvironmentMembershipsResult
-newDescribeEnvironmentMembershipsResult'  customize = (DescribeEnvironmentMembershipsResult <<< customize) { "memberships": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newDescribeEnvironmentMembershipsResult' :: ( { "memberships" :: Maybe (EnvironmentMembersList) , "nextToken" :: Maybe (String) } -> {"memberships" :: Maybe (EnvironmentMembersList) , "nextToken" :: Maybe (String) } ) -> DescribeEnvironmentMembershipsResult
+newDescribeEnvironmentMembershipsResult'  customize = (DescribeEnvironmentMembershipsResult <<< customize) { "memberships": Nothing, "nextToken": Nothing }
 
 
 
@@ -278,8 +277,8 @@ newDescribeEnvironmentStatusRequest' _environmentId customize = (DescribeEnviron
 
 
 newtype DescribeEnvironmentStatusResult = DescribeEnvironmentStatusResult 
-  { "status" :: NullOrUndefined (EnvironmentStatus)
-  , "message" :: NullOrUndefined (String)
+  { "status" :: Maybe (EnvironmentStatus)
+  , "message" :: Maybe (String)
   }
 derive instance newtypeDescribeEnvironmentStatusResult :: Newtype DescribeEnvironmentStatusResult _
 derive instance repGenericDescribeEnvironmentStatusResult :: Generic DescribeEnvironmentStatusResult _
@@ -289,12 +288,12 @@ instance encodeDescribeEnvironmentStatusResult :: Encode DescribeEnvironmentStat
 
 -- | Constructs DescribeEnvironmentStatusResult from required parameters
 newDescribeEnvironmentStatusResult :: DescribeEnvironmentStatusResult
-newDescribeEnvironmentStatusResult  = DescribeEnvironmentStatusResult { "message": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing) }
+newDescribeEnvironmentStatusResult  = DescribeEnvironmentStatusResult { "message": Nothing, "status": Nothing }
 
 -- | Constructs DescribeEnvironmentStatusResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeEnvironmentStatusResult' :: ( { "status" :: NullOrUndefined (EnvironmentStatus) , "message" :: NullOrUndefined (String) } -> {"status" :: NullOrUndefined (EnvironmentStatus) , "message" :: NullOrUndefined (String) } ) -> DescribeEnvironmentStatusResult
-newDescribeEnvironmentStatusResult'  customize = (DescribeEnvironmentStatusResult <<< customize) { "message": (NullOrUndefined Nothing), "status": (NullOrUndefined Nothing) }
+newDescribeEnvironmentStatusResult' :: ( { "status" :: Maybe (EnvironmentStatus) , "message" :: Maybe (String) } -> {"status" :: Maybe (EnvironmentStatus) , "message" :: Maybe (String) } ) -> DescribeEnvironmentStatusResult
+newDescribeEnvironmentStatusResult'  customize = (DescribeEnvironmentStatusResult <<< customize) { "message": Nothing, "status": Nothing }
 
 
 
@@ -319,7 +318,7 @@ newDescribeEnvironmentsRequest' _environmentIds customize = (DescribeEnvironment
 
 
 newtype DescribeEnvironmentsResult = DescribeEnvironmentsResult 
-  { "environments" :: NullOrUndefined (EnvironmentList)
+  { "environments" :: Maybe (EnvironmentList)
   }
 derive instance newtypeDescribeEnvironmentsResult :: Newtype DescribeEnvironmentsResult _
 derive instance repGenericDescribeEnvironmentsResult :: Generic DescribeEnvironmentsResult _
@@ -329,23 +328,23 @@ instance encodeDescribeEnvironmentsResult :: Encode DescribeEnvironmentsResult w
 
 -- | Constructs DescribeEnvironmentsResult from required parameters
 newDescribeEnvironmentsResult :: DescribeEnvironmentsResult
-newDescribeEnvironmentsResult  = DescribeEnvironmentsResult { "environments": (NullOrUndefined Nothing) }
+newDescribeEnvironmentsResult  = DescribeEnvironmentsResult { "environments": Nothing }
 
 -- | Constructs DescribeEnvironmentsResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeEnvironmentsResult' :: ( { "environments" :: NullOrUndefined (EnvironmentList) } -> {"environments" :: NullOrUndefined (EnvironmentList) } ) -> DescribeEnvironmentsResult
-newDescribeEnvironmentsResult'  customize = (DescribeEnvironmentsResult <<< customize) { "environments": (NullOrUndefined Nothing) }
+newDescribeEnvironmentsResult' :: ( { "environments" :: Maybe (EnvironmentList) } -> {"environments" :: Maybe (EnvironmentList) } ) -> DescribeEnvironmentsResult
+newDescribeEnvironmentsResult'  customize = (DescribeEnvironmentsResult <<< customize) { "environments": Nothing }
 
 
 
 -- | <p>Information about an AWS Cloud9 development environment.</p>
 newtype Environment = Environment 
-  { "id" :: NullOrUndefined (EnvironmentId)
-  , "name" :: NullOrUndefined (EnvironmentName)
-  , "description" :: NullOrUndefined (EnvironmentDescription)
-  , "type" :: NullOrUndefined (EnvironmentType)
-  , "arn" :: NullOrUndefined (String)
-  , "ownerArn" :: NullOrUndefined (String)
+  { "id" :: Maybe (EnvironmentId)
+  , "name" :: Maybe (EnvironmentName)
+  , "description" :: Maybe (EnvironmentDescription)
+  , "type" :: Maybe (EnvironmentType)
+  , "arn" :: Maybe (String)
+  , "ownerArn" :: Maybe (String)
   }
 derive instance newtypeEnvironment :: Newtype Environment _
 derive instance repGenericEnvironment :: Generic Environment _
@@ -355,12 +354,12 @@ instance encodeEnvironment :: Encode Environment where encode = genericEncode op
 
 -- | Constructs Environment from required parameters
 newEnvironment :: Environment
-newEnvironment  = Environment { "arn": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "ownerArn": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing) }
+newEnvironment  = Environment { "arn": Nothing, "description": Nothing, "id": Nothing, "name": Nothing, "ownerArn": Nothing, "type": Nothing }
 
 -- | Constructs Environment's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEnvironment' :: ( { "id" :: NullOrUndefined (EnvironmentId) , "name" :: NullOrUndefined (EnvironmentName) , "description" :: NullOrUndefined (EnvironmentDescription) , "type" :: NullOrUndefined (EnvironmentType) , "arn" :: NullOrUndefined (String) , "ownerArn" :: NullOrUndefined (String) } -> {"id" :: NullOrUndefined (EnvironmentId) , "name" :: NullOrUndefined (EnvironmentName) , "description" :: NullOrUndefined (EnvironmentDescription) , "type" :: NullOrUndefined (EnvironmentType) , "arn" :: NullOrUndefined (String) , "ownerArn" :: NullOrUndefined (String) } ) -> Environment
-newEnvironment'  customize = (Environment <<< customize) { "arn": (NullOrUndefined Nothing), "description": (NullOrUndefined Nothing), "id": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing), "ownerArn": (NullOrUndefined Nothing), "type": (NullOrUndefined Nothing) }
+newEnvironment' :: ( { "id" :: Maybe (EnvironmentId) , "name" :: Maybe (EnvironmentName) , "description" :: Maybe (EnvironmentDescription) , "type" :: Maybe (EnvironmentType) , "arn" :: Maybe (String) , "ownerArn" :: Maybe (String) } -> {"id" :: Maybe (EnvironmentId) , "name" :: Maybe (EnvironmentName) , "description" :: Maybe (EnvironmentDescription) , "type" :: Maybe (EnvironmentType) , "arn" :: Maybe (String) , "ownerArn" :: Maybe (String) } ) -> Environment
+newEnvironment'  customize = (Environment <<< customize) { "arn": Nothing, "description": Nothing, "id": Nothing, "name": Nothing, "ownerArn": Nothing, "type": Nothing }
 
 
 
@@ -402,11 +401,11 @@ instance encodeEnvironmentList :: Encode EnvironmentList where encode = genericE
 
 -- | <p>Information about an environment member for an AWS Cloud9 development environment.</p>
 newtype EnvironmentMember = EnvironmentMember 
-  { "permissions" :: NullOrUndefined (Permissions)
-  , "userId" :: NullOrUndefined (String)
-  , "userArn" :: NullOrUndefined (UserArn)
-  , "environmentId" :: NullOrUndefined (EnvironmentId)
-  , "lastAccess" :: NullOrUndefined (Types.Timestamp)
+  { "permissions" :: Maybe (Permissions)
+  , "userId" :: Maybe (String)
+  , "userArn" :: Maybe (UserArn)
+  , "environmentId" :: Maybe (EnvironmentId)
+  , "lastAccess" :: Maybe (Types.Timestamp)
   }
 derive instance newtypeEnvironmentMember :: Newtype EnvironmentMember _
 derive instance repGenericEnvironmentMember :: Generic EnvironmentMember _
@@ -416,12 +415,12 @@ instance encodeEnvironmentMember :: Encode EnvironmentMember where encode = gene
 
 -- | Constructs EnvironmentMember from required parameters
 newEnvironmentMember :: EnvironmentMember
-newEnvironmentMember  = EnvironmentMember { "environmentId": (NullOrUndefined Nothing), "lastAccess": (NullOrUndefined Nothing), "permissions": (NullOrUndefined Nothing), "userArn": (NullOrUndefined Nothing), "userId": (NullOrUndefined Nothing) }
+newEnvironmentMember  = EnvironmentMember { "environmentId": Nothing, "lastAccess": Nothing, "permissions": Nothing, "userArn": Nothing, "userId": Nothing }
 
 -- | Constructs EnvironmentMember's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEnvironmentMember' :: ( { "permissions" :: NullOrUndefined (Permissions) , "userId" :: NullOrUndefined (String) , "userArn" :: NullOrUndefined (UserArn) , "environmentId" :: NullOrUndefined (EnvironmentId) , "lastAccess" :: NullOrUndefined (Types.Timestamp) } -> {"permissions" :: NullOrUndefined (Permissions) , "userId" :: NullOrUndefined (String) , "userArn" :: NullOrUndefined (UserArn) , "environmentId" :: NullOrUndefined (EnvironmentId) , "lastAccess" :: NullOrUndefined (Types.Timestamp) } ) -> EnvironmentMember
-newEnvironmentMember'  customize = (EnvironmentMember <<< customize) { "environmentId": (NullOrUndefined Nothing), "lastAccess": (NullOrUndefined Nothing), "permissions": (NullOrUndefined Nothing), "userArn": (NullOrUndefined Nothing), "userId": (NullOrUndefined Nothing) }
+newEnvironmentMember' :: ( { "permissions" :: Maybe (Permissions) , "userId" :: Maybe (String) , "userArn" :: Maybe (UserArn) , "environmentId" :: Maybe (EnvironmentId) , "lastAccess" :: Maybe (Types.Timestamp) } -> {"permissions" :: Maybe (Permissions) , "userId" :: Maybe (String) , "userArn" :: Maybe (UserArn) , "environmentId" :: Maybe (EnvironmentId) , "lastAccess" :: Maybe (Types.Timestamp) } ) -> EnvironmentMember
+newEnvironmentMember'  customize = (EnvironmentMember <<< customize) { "environmentId": Nothing, "lastAccess": Nothing, "permissions": Nothing, "userArn": Nothing, "userId": Nothing }
 
 
 
@@ -501,8 +500,8 @@ instance encodeLimitExceededException :: Encode LimitExceededException where enc
 
 
 newtype ListEnvironmentsRequest = ListEnvironmentsRequest 
-  { "nextToken" :: NullOrUndefined (String)
-  , "maxResults" :: NullOrUndefined (MaxResults)
+  { "nextToken" :: Maybe (String)
+  , "maxResults" :: Maybe (MaxResults)
   }
 derive instance newtypeListEnvironmentsRequest :: Newtype ListEnvironmentsRequest _
 derive instance repGenericListEnvironmentsRequest :: Generic ListEnvironmentsRequest _
@@ -512,18 +511,18 @@ instance encodeListEnvironmentsRequest :: Encode ListEnvironmentsRequest where e
 
 -- | Constructs ListEnvironmentsRequest from required parameters
 newListEnvironmentsRequest :: ListEnvironmentsRequest
-newListEnvironmentsRequest  = ListEnvironmentsRequest { "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListEnvironmentsRequest  = ListEnvironmentsRequest { "maxResults": Nothing, "nextToken": Nothing }
 
 -- | Constructs ListEnvironmentsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListEnvironmentsRequest' :: ( { "nextToken" :: NullOrUndefined (String) , "maxResults" :: NullOrUndefined (MaxResults) } -> {"nextToken" :: NullOrUndefined (String) , "maxResults" :: NullOrUndefined (MaxResults) } ) -> ListEnvironmentsRequest
-newListEnvironmentsRequest'  customize = (ListEnvironmentsRequest <<< customize) { "maxResults": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListEnvironmentsRequest' :: ( { "nextToken" :: Maybe (String) , "maxResults" :: Maybe (MaxResults) } -> {"nextToken" :: Maybe (String) , "maxResults" :: Maybe (MaxResults) } ) -> ListEnvironmentsRequest
+newListEnvironmentsRequest'  customize = (ListEnvironmentsRequest <<< customize) { "maxResults": Nothing, "nextToken": Nothing }
 
 
 
 newtype ListEnvironmentsResult = ListEnvironmentsResult 
-  { "nextToken" :: NullOrUndefined (String)
-  , "environmentIds" :: NullOrUndefined (EnvironmentIdList)
+  { "nextToken" :: Maybe (String)
+  , "environmentIds" :: Maybe (EnvironmentIdList)
   }
 derive instance newtypeListEnvironmentsResult :: Newtype ListEnvironmentsResult _
 derive instance repGenericListEnvironmentsResult :: Generic ListEnvironmentsResult _
@@ -533,12 +532,12 @@ instance encodeListEnvironmentsResult :: Encode ListEnvironmentsResult where enc
 
 -- | Constructs ListEnvironmentsResult from required parameters
 newListEnvironmentsResult :: ListEnvironmentsResult
-newListEnvironmentsResult  = ListEnvironmentsResult { "environmentIds": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListEnvironmentsResult  = ListEnvironmentsResult { "environmentIds": Nothing, "nextToken": Nothing }
 
 -- | Constructs ListEnvironmentsResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newListEnvironmentsResult' :: ( { "nextToken" :: NullOrUndefined (String) , "environmentIds" :: NullOrUndefined (EnvironmentIdList) } -> {"nextToken" :: NullOrUndefined (String) , "environmentIds" :: NullOrUndefined (EnvironmentIdList) } ) -> ListEnvironmentsResult
-newListEnvironmentsResult'  customize = (ListEnvironmentsResult <<< customize) { "environmentIds": (NullOrUndefined Nothing), "nextToken": (NullOrUndefined Nothing) }
+newListEnvironmentsResult' :: ( { "nextToken" :: Maybe (String) , "environmentIds" :: Maybe (EnvironmentIdList) } -> {"nextToken" :: Maybe (String) , "environmentIds" :: Maybe (EnvironmentIdList) } ) -> ListEnvironmentsResult
+newListEnvironmentsResult'  customize = (ListEnvironmentsResult <<< customize) { "environmentIds": Nothing, "nextToken": Nothing }
 
 
 
@@ -630,7 +629,7 @@ newUpdateEnvironmentMembershipRequest' _environmentId _permissions _userArn cust
 
 
 newtype UpdateEnvironmentMembershipResult = UpdateEnvironmentMembershipResult 
-  { "membership" :: NullOrUndefined (EnvironmentMember)
+  { "membership" :: Maybe (EnvironmentMember)
   }
 derive instance newtypeUpdateEnvironmentMembershipResult :: Newtype UpdateEnvironmentMembershipResult _
 derive instance repGenericUpdateEnvironmentMembershipResult :: Generic UpdateEnvironmentMembershipResult _
@@ -640,19 +639,19 @@ instance encodeUpdateEnvironmentMembershipResult :: Encode UpdateEnvironmentMemb
 
 -- | Constructs UpdateEnvironmentMembershipResult from required parameters
 newUpdateEnvironmentMembershipResult :: UpdateEnvironmentMembershipResult
-newUpdateEnvironmentMembershipResult  = UpdateEnvironmentMembershipResult { "membership": (NullOrUndefined Nothing) }
+newUpdateEnvironmentMembershipResult  = UpdateEnvironmentMembershipResult { "membership": Nothing }
 
 -- | Constructs UpdateEnvironmentMembershipResult's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateEnvironmentMembershipResult' :: ( { "membership" :: NullOrUndefined (EnvironmentMember) } -> {"membership" :: NullOrUndefined (EnvironmentMember) } ) -> UpdateEnvironmentMembershipResult
-newUpdateEnvironmentMembershipResult'  customize = (UpdateEnvironmentMembershipResult <<< customize) { "membership": (NullOrUndefined Nothing) }
+newUpdateEnvironmentMembershipResult' :: ( { "membership" :: Maybe (EnvironmentMember) } -> {"membership" :: Maybe (EnvironmentMember) } ) -> UpdateEnvironmentMembershipResult
+newUpdateEnvironmentMembershipResult'  customize = (UpdateEnvironmentMembershipResult <<< customize) { "membership": Nothing }
 
 
 
 newtype UpdateEnvironmentRequest = UpdateEnvironmentRequest 
   { "environmentId" :: (EnvironmentId)
-  , "name" :: NullOrUndefined (EnvironmentName)
-  , "description" :: NullOrUndefined (EnvironmentDescription)
+  , "name" :: Maybe (EnvironmentName)
+  , "description" :: Maybe (EnvironmentDescription)
   }
 derive instance newtypeUpdateEnvironmentRequest :: Newtype UpdateEnvironmentRequest _
 derive instance repGenericUpdateEnvironmentRequest :: Generic UpdateEnvironmentRequest _
@@ -662,12 +661,12 @@ instance encodeUpdateEnvironmentRequest :: Encode UpdateEnvironmentRequest where
 
 -- | Constructs UpdateEnvironmentRequest from required parameters
 newUpdateEnvironmentRequest :: EnvironmentId -> UpdateEnvironmentRequest
-newUpdateEnvironmentRequest _environmentId = UpdateEnvironmentRequest { "environmentId": _environmentId, "description": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing) }
+newUpdateEnvironmentRequest _environmentId = UpdateEnvironmentRequest { "environmentId": _environmentId, "description": Nothing, "name": Nothing }
 
 -- | Constructs UpdateEnvironmentRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateEnvironmentRequest' :: EnvironmentId -> ( { "environmentId" :: (EnvironmentId) , "name" :: NullOrUndefined (EnvironmentName) , "description" :: NullOrUndefined (EnvironmentDescription) } -> {"environmentId" :: (EnvironmentId) , "name" :: NullOrUndefined (EnvironmentName) , "description" :: NullOrUndefined (EnvironmentDescription) } ) -> UpdateEnvironmentRequest
-newUpdateEnvironmentRequest' _environmentId customize = (UpdateEnvironmentRequest <<< customize) { "environmentId": _environmentId, "description": (NullOrUndefined Nothing), "name": (NullOrUndefined Nothing) }
+newUpdateEnvironmentRequest' :: EnvironmentId -> ( { "environmentId" :: (EnvironmentId) , "name" :: Maybe (EnvironmentName) , "description" :: Maybe (EnvironmentDescription) } -> {"environmentId" :: (EnvironmentId) , "name" :: Maybe (EnvironmentName) , "description" :: Maybe (EnvironmentDescription) } ) -> UpdateEnvironmentRequest
+newUpdateEnvironmentRequest' _environmentId customize = (UpdateEnvironmentRequest <<< customize) { "environmentId": _environmentId, "description": Nothing, "name": Nothing }
 
 
 

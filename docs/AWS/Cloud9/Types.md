@@ -94,7 +94,7 @@ Encode ConflictException
 
 ``` purescript
 newtype CreateEnvironmentEC2Request
-  = CreateEnvironmentEC2Request { name :: EnvironmentName, description :: NullOrUndefined (EnvironmentDescription), clientRequestToken :: NullOrUndefined (ClientRequestToken), instanceType :: InstanceType, subnetId :: NullOrUndefined (SubnetId), automaticStopTimeMinutes :: NullOrUndefined (AutomaticStopTimeMinutes), ownerArn :: NullOrUndefined (UserArn) }
+  = CreateEnvironmentEC2Request { name :: EnvironmentName, description :: Maybe (EnvironmentDescription), clientRequestToken :: Maybe (ClientRequestToken), instanceType :: InstanceType, subnetId :: Maybe (SubnetId), automaticStopTimeMinutes :: Maybe (AutomaticStopTimeMinutes), ownerArn :: Maybe (UserArn) }
 ```
 
 ##### Instances
@@ -117,7 +117,7 @@ Constructs CreateEnvironmentEC2Request from required parameters
 #### `newCreateEnvironmentEC2Request'`
 
 ``` purescript
-newCreateEnvironmentEC2Request' :: InstanceType -> EnvironmentName -> ({ name :: EnvironmentName, description :: NullOrUndefined (EnvironmentDescription), clientRequestToken :: NullOrUndefined (ClientRequestToken), instanceType :: InstanceType, subnetId :: NullOrUndefined (SubnetId), automaticStopTimeMinutes :: NullOrUndefined (AutomaticStopTimeMinutes), ownerArn :: NullOrUndefined (UserArn) } -> { name :: EnvironmentName, description :: NullOrUndefined (EnvironmentDescription), clientRequestToken :: NullOrUndefined (ClientRequestToken), instanceType :: InstanceType, subnetId :: NullOrUndefined (SubnetId), automaticStopTimeMinutes :: NullOrUndefined (AutomaticStopTimeMinutes), ownerArn :: NullOrUndefined (UserArn) }) -> CreateEnvironmentEC2Request
+newCreateEnvironmentEC2Request' :: InstanceType -> EnvironmentName -> ({ name :: EnvironmentName, description :: Maybe (EnvironmentDescription), clientRequestToken :: Maybe (ClientRequestToken), instanceType :: InstanceType, subnetId :: Maybe (SubnetId), automaticStopTimeMinutes :: Maybe (AutomaticStopTimeMinutes), ownerArn :: Maybe (UserArn) } -> { name :: EnvironmentName, description :: Maybe (EnvironmentDescription), clientRequestToken :: Maybe (ClientRequestToken), instanceType :: InstanceType, subnetId :: Maybe (SubnetId), automaticStopTimeMinutes :: Maybe (AutomaticStopTimeMinutes), ownerArn :: Maybe (UserArn) }) -> CreateEnvironmentEC2Request
 ```
 
 Constructs CreateEnvironmentEC2Request's fields from required parameters
@@ -126,7 +126,7 @@ Constructs CreateEnvironmentEC2Request's fields from required parameters
 
 ``` purescript
 newtype CreateEnvironmentEC2Result
-  = CreateEnvironmentEC2Result { environmentId :: NullOrUndefined (EnvironmentId) }
+  = CreateEnvironmentEC2Result { environmentId :: Maybe (EnvironmentId) }
 ```
 
 ##### Instances
@@ -149,7 +149,7 @@ Constructs CreateEnvironmentEC2Result from required parameters
 #### `newCreateEnvironmentEC2Result'`
 
 ``` purescript
-newCreateEnvironmentEC2Result' :: ({ environmentId :: NullOrUndefined (EnvironmentId) } -> { environmentId :: NullOrUndefined (EnvironmentId) }) -> CreateEnvironmentEC2Result
+newCreateEnvironmentEC2Result' :: ({ environmentId :: Maybe (EnvironmentId) } -> { environmentId :: Maybe (EnvironmentId) }) -> CreateEnvironmentEC2Result
 ```
 
 Constructs CreateEnvironmentEC2Result's fields from required parameters
@@ -190,7 +190,7 @@ Constructs CreateEnvironmentMembershipRequest's fields from required parameters
 
 ``` purescript
 newtype CreateEnvironmentMembershipResult
-  = CreateEnvironmentMembershipResult { membership :: NullOrUndefined (EnvironmentMember) }
+  = CreateEnvironmentMembershipResult { membership :: Maybe (EnvironmentMember) }
 ```
 
 ##### Instances
@@ -213,7 +213,7 @@ Constructs CreateEnvironmentMembershipResult from required parameters
 #### `newCreateEnvironmentMembershipResult'`
 
 ``` purescript
-newCreateEnvironmentMembershipResult' :: ({ membership :: NullOrUndefined (EnvironmentMember) } -> { membership :: NullOrUndefined (EnvironmentMember) }) -> CreateEnvironmentMembershipResult
+newCreateEnvironmentMembershipResult' :: ({ membership :: Maybe (EnvironmentMember) } -> { membership :: Maybe (EnvironmentMember) }) -> CreateEnvironmentMembershipResult
 ```
 
 Constructs CreateEnvironmentMembershipResult's fields from required parameters
@@ -318,7 +318,7 @@ Encode DeleteEnvironmentResult
 
 ``` purescript
 newtype DescribeEnvironmentMembershipsRequest
-  = DescribeEnvironmentMembershipsRequest { userArn :: NullOrUndefined (UserArn), environmentId :: NullOrUndefined (EnvironmentId), permissions :: NullOrUndefined (PermissionsList), nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (MaxResults) }
+  = DescribeEnvironmentMembershipsRequest { userArn :: Maybe (UserArn), environmentId :: Maybe (EnvironmentId), permissions :: Maybe (PermissionsList), nextToken :: Maybe (String), maxResults :: Maybe (MaxResults) }
 ```
 
 ##### Instances
@@ -341,7 +341,7 @@ Constructs DescribeEnvironmentMembershipsRequest from required parameters
 #### `newDescribeEnvironmentMembershipsRequest'`
 
 ``` purescript
-newDescribeEnvironmentMembershipsRequest' :: ({ userArn :: NullOrUndefined (UserArn), environmentId :: NullOrUndefined (EnvironmentId), permissions :: NullOrUndefined (PermissionsList), nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (MaxResults) } -> { userArn :: NullOrUndefined (UserArn), environmentId :: NullOrUndefined (EnvironmentId), permissions :: NullOrUndefined (PermissionsList), nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (MaxResults) }) -> DescribeEnvironmentMembershipsRequest
+newDescribeEnvironmentMembershipsRequest' :: ({ userArn :: Maybe (UserArn), environmentId :: Maybe (EnvironmentId), permissions :: Maybe (PermissionsList), nextToken :: Maybe (String), maxResults :: Maybe (MaxResults) } -> { userArn :: Maybe (UserArn), environmentId :: Maybe (EnvironmentId), permissions :: Maybe (PermissionsList), nextToken :: Maybe (String), maxResults :: Maybe (MaxResults) }) -> DescribeEnvironmentMembershipsRequest
 ```
 
 Constructs DescribeEnvironmentMembershipsRequest's fields from required parameters
@@ -350,7 +350,7 @@ Constructs DescribeEnvironmentMembershipsRequest's fields from required paramete
 
 ``` purescript
 newtype DescribeEnvironmentMembershipsResult
-  = DescribeEnvironmentMembershipsResult { memberships :: NullOrUndefined (EnvironmentMembersList), nextToken :: NullOrUndefined (String) }
+  = DescribeEnvironmentMembershipsResult { memberships :: Maybe (EnvironmentMembersList), nextToken :: Maybe (String) }
 ```
 
 ##### Instances
@@ -373,7 +373,7 @@ Constructs DescribeEnvironmentMembershipsResult from required parameters
 #### `newDescribeEnvironmentMembershipsResult'`
 
 ``` purescript
-newDescribeEnvironmentMembershipsResult' :: ({ memberships :: NullOrUndefined (EnvironmentMembersList), nextToken :: NullOrUndefined (String) } -> { memberships :: NullOrUndefined (EnvironmentMembersList), nextToken :: NullOrUndefined (String) }) -> DescribeEnvironmentMembershipsResult
+newDescribeEnvironmentMembershipsResult' :: ({ memberships :: Maybe (EnvironmentMembersList), nextToken :: Maybe (String) } -> { memberships :: Maybe (EnvironmentMembersList), nextToken :: Maybe (String) }) -> DescribeEnvironmentMembershipsResult
 ```
 
 Constructs DescribeEnvironmentMembershipsResult's fields from required parameters
@@ -414,7 +414,7 @@ Constructs DescribeEnvironmentStatusRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeEnvironmentStatusResult
-  = DescribeEnvironmentStatusResult { status :: NullOrUndefined (EnvironmentStatus), message :: NullOrUndefined (String) }
+  = DescribeEnvironmentStatusResult { status :: Maybe (EnvironmentStatus), message :: Maybe (String) }
 ```
 
 ##### Instances
@@ -437,7 +437,7 @@ Constructs DescribeEnvironmentStatusResult from required parameters
 #### `newDescribeEnvironmentStatusResult'`
 
 ``` purescript
-newDescribeEnvironmentStatusResult' :: ({ status :: NullOrUndefined (EnvironmentStatus), message :: NullOrUndefined (String) } -> { status :: NullOrUndefined (EnvironmentStatus), message :: NullOrUndefined (String) }) -> DescribeEnvironmentStatusResult
+newDescribeEnvironmentStatusResult' :: ({ status :: Maybe (EnvironmentStatus), message :: Maybe (String) } -> { status :: Maybe (EnvironmentStatus), message :: Maybe (String) }) -> DescribeEnvironmentStatusResult
 ```
 
 Constructs DescribeEnvironmentStatusResult's fields from required parameters
@@ -478,7 +478,7 @@ Constructs DescribeEnvironmentsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeEnvironmentsResult
-  = DescribeEnvironmentsResult { environments :: NullOrUndefined (EnvironmentList) }
+  = DescribeEnvironmentsResult { environments :: Maybe (EnvironmentList) }
 ```
 
 ##### Instances
@@ -501,7 +501,7 @@ Constructs DescribeEnvironmentsResult from required parameters
 #### `newDescribeEnvironmentsResult'`
 
 ``` purescript
-newDescribeEnvironmentsResult' :: ({ environments :: NullOrUndefined (EnvironmentList) } -> { environments :: NullOrUndefined (EnvironmentList) }) -> DescribeEnvironmentsResult
+newDescribeEnvironmentsResult' :: ({ environments :: Maybe (EnvironmentList) } -> { environments :: Maybe (EnvironmentList) }) -> DescribeEnvironmentsResult
 ```
 
 Constructs DescribeEnvironmentsResult's fields from required parameters
@@ -510,7 +510,7 @@ Constructs DescribeEnvironmentsResult's fields from required parameters
 
 ``` purescript
 newtype Environment
-  = Environment { id :: NullOrUndefined (EnvironmentId), name :: NullOrUndefined (EnvironmentName), description :: NullOrUndefined (EnvironmentDescription), "type" :: NullOrUndefined (EnvironmentType), arn :: NullOrUndefined (String), ownerArn :: NullOrUndefined (String) }
+  = Environment { id :: Maybe (EnvironmentId), name :: Maybe (EnvironmentName), description :: Maybe (EnvironmentDescription), "type" :: Maybe (EnvironmentType), arn :: Maybe (String), ownerArn :: Maybe (String) }
 ```
 
 <p>Information about an AWS Cloud9 development environment.</p>
@@ -535,7 +535,7 @@ Constructs Environment from required parameters
 #### `newEnvironment'`
 
 ``` purescript
-newEnvironment' :: ({ id :: NullOrUndefined (EnvironmentId), name :: NullOrUndefined (EnvironmentName), description :: NullOrUndefined (EnvironmentDescription), "type" :: NullOrUndefined (EnvironmentType), arn :: NullOrUndefined (String), ownerArn :: NullOrUndefined (String) } -> { id :: NullOrUndefined (EnvironmentId), name :: NullOrUndefined (EnvironmentName), description :: NullOrUndefined (EnvironmentDescription), "type" :: NullOrUndefined (EnvironmentType), arn :: NullOrUndefined (String), ownerArn :: NullOrUndefined (String) }) -> Environment
+newEnvironment' :: ({ id :: Maybe (EnvironmentId), name :: Maybe (EnvironmentName), description :: Maybe (EnvironmentDescription), "type" :: Maybe (EnvironmentType), arn :: Maybe (String), ownerArn :: Maybe (String) } -> { id :: Maybe (EnvironmentId), name :: Maybe (EnvironmentName), description :: Maybe (EnvironmentDescription), "type" :: Maybe (EnvironmentType), arn :: Maybe (String), ownerArn :: Maybe (String) }) -> Environment
 ```
 
 Constructs Environment's fields from required parameters
@@ -608,7 +608,7 @@ Encode EnvironmentList
 
 ``` purescript
 newtype EnvironmentMember
-  = EnvironmentMember { permissions :: NullOrUndefined (Permissions), userId :: NullOrUndefined (String), userArn :: NullOrUndefined (UserArn), environmentId :: NullOrUndefined (EnvironmentId), lastAccess :: NullOrUndefined (Timestamp) }
+  = EnvironmentMember { permissions :: Maybe (Permissions), userId :: Maybe (String), userArn :: Maybe (UserArn), environmentId :: Maybe (EnvironmentId), lastAccess :: Maybe (Timestamp) }
 ```
 
 <p>Information about an environment member for an AWS Cloud9 development environment.</p>
@@ -633,7 +633,7 @@ Constructs EnvironmentMember from required parameters
 #### `newEnvironmentMember'`
 
 ``` purescript
-newEnvironmentMember' :: ({ permissions :: NullOrUndefined (Permissions), userId :: NullOrUndefined (String), userArn :: NullOrUndefined (UserArn), environmentId :: NullOrUndefined (EnvironmentId), lastAccess :: NullOrUndefined (Timestamp) } -> { permissions :: NullOrUndefined (Permissions), userId :: NullOrUndefined (String), userArn :: NullOrUndefined (UserArn), environmentId :: NullOrUndefined (EnvironmentId), lastAccess :: NullOrUndefined (Timestamp) }) -> EnvironmentMember
+newEnvironmentMember' :: ({ permissions :: Maybe (Permissions), userId :: Maybe (String), userArn :: Maybe (UserArn), environmentId :: Maybe (EnvironmentId), lastAccess :: Maybe (Timestamp) } -> { permissions :: Maybe (Permissions), userId :: Maybe (String), userArn :: Maybe (UserArn), environmentId :: Maybe (EnvironmentId), lastAccess :: Maybe (Timestamp) }) -> EnvironmentMember
 ```
 
 Constructs EnvironmentMember's fields from required parameters
@@ -776,7 +776,7 @@ Encode LimitExceededException
 
 ``` purescript
 newtype ListEnvironmentsRequest
-  = ListEnvironmentsRequest { nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (MaxResults) }
+  = ListEnvironmentsRequest { nextToken :: Maybe (String), maxResults :: Maybe (MaxResults) }
 ```
 
 ##### Instances
@@ -799,7 +799,7 @@ Constructs ListEnvironmentsRequest from required parameters
 #### `newListEnvironmentsRequest'`
 
 ``` purescript
-newListEnvironmentsRequest' :: ({ nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (MaxResults) } -> { nextToken :: NullOrUndefined (String), maxResults :: NullOrUndefined (MaxResults) }) -> ListEnvironmentsRequest
+newListEnvironmentsRequest' :: ({ nextToken :: Maybe (String), maxResults :: Maybe (MaxResults) } -> { nextToken :: Maybe (String), maxResults :: Maybe (MaxResults) }) -> ListEnvironmentsRequest
 ```
 
 Constructs ListEnvironmentsRequest's fields from required parameters
@@ -808,7 +808,7 @@ Constructs ListEnvironmentsRequest's fields from required parameters
 
 ``` purescript
 newtype ListEnvironmentsResult
-  = ListEnvironmentsResult { nextToken :: NullOrUndefined (String), environmentIds :: NullOrUndefined (EnvironmentIdList) }
+  = ListEnvironmentsResult { nextToken :: Maybe (String), environmentIds :: Maybe (EnvironmentIdList) }
 ```
 
 ##### Instances
@@ -831,7 +831,7 @@ Constructs ListEnvironmentsResult from required parameters
 #### `newListEnvironmentsResult'`
 
 ``` purescript
-newListEnvironmentsResult' :: ({ nextToken :: NullOrUndefined (String), environmentIds :: NullOrUndefined (EnvironmentIdList) } -> { nextToken :: NullOrUndefined (String), environmentIds :: NullOrUndefined (EnvironmentIdList) }) -> ListEnvironmentsResult
+newListEnvironmentsResult' :: ({ nextToken :: Maybe (String), environmentIds :: Maybe (EnvironmentIdList) } -> { nextToken :: Maybe (String), environmentIds :: Maybe (EnvironmentIdList) }) -> ListEnvironmentsResult
 ```
 
 Constructs ListEnvironmentsResult's fields from required parameters
@@ -988,7 +988,7 @@ Constructs UpdateEnvironmentMembershipRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateEnvironmentMembershipResult
-  = UpdateEnvironmentMembershipResult { membership :: NullOrUndefined (EnvironmentMember) }
+  = UpdateEnvironmentMembershipResult { membership :: Maybe (EnvironmentMember) }
 ```
 
 ##### Instances
@@ -1011,7 +1011,7 @@ Constructs UpdateEnvironmentMembershipResult from required parameters
 #### `newUpdateEnvironmentMembershipResult'`
 
 ``` purescript
-newUpdateEnvironmentMembershipResult' :: ({ membership :: NullOrUndefined (EnvironmentMember) } -> { membership :: NullOrUndefined (EnvironmentMember) }) -> UpdateEnvironmentMembershipResult
+newUpdateEnvironmentMembershipResult' :: ({ membership :: Maybe (EnvironmentMember) } -> { membership :: Maybe (EnvironmentMember) }) -> UpdateEnvironmentMembershipResult
 ```
 
 Constructs UpdateEnvironmentMembershipResult's fields from required parameters
@@ -1020,7 +1020,7 @@ Constructs UpdateEnvironmentMembershipResult's fields from required parameters
 
 ``` purescript
 newtype UpdateEnvironmentRequest
-  = UpdateEnvironmentRequest { environmentId :: EnvironmentId, name :: NullOrUndefined (EnvironmentName), description :: NullOrUndefined (EnvironmentDescription) }
+  = UpdateEnvironmentRequest { environmentId :: EnvironmentId, name :: Maybe (EnvironmentName), description :: Maybe (EnvironmentDescription) }
 ```
 
 ##### Instances
@@ -1043,7 +1043,7 @@ Constructs UpdateEnvironmentRequest from required parameters
 #### `newUpdateEnvironmentRequest'`
 
 ``` purescript
-newUpdateEnvironmentRequest' :: EnvironmentId -> ({ environmentId :: EnvironmentId, name :: NullOrUndefined (EnvironmentName), description :: NullOrUndefined (EnvironmentDescription) } -> { environmentId :: EnvironmentId, name :: NullOrUndefined (EnvironmentName), description :: NullOrUndefined (EnvironmentDescription) }) -> UpdateEnvironmentRequest
+newUpdateEnvironmentRequest' :: EnvironmentId -> ({ environmentId :: EnvironmentId, name :: Maybe (EnvironmentName), description :: Maybe (EnvironmentDescription) } -> { environmentId :: EnvironmentId, name :: Maybe (EnvironmentName), description :: Maybe (EnvironmentDescription) }) -> UpdateEnvironmentRequest
 ```
 
 Constructs UpdateEnvironmentRequest's fields from required parameters
